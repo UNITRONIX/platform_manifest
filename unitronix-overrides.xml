@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  UNITRONIX public fork overrides for BlissOS typhoon-x86.
+  Resolves key components from https://github.com/UNITRONIX/
+  Revisions match BlissOS typhoon-x86 upstream pins.
+  Not an official BlissOS release. Apache-2.0 / AOSP attribution preserved.
+-->
+<manifest>
+  <remote name="unitronix"
+          fetch="https://github.com/UNITRONIX"
+          revision="typhoon-x86" />
+
+  <!-- Device trees (upstream used BlissOS remote default typhoon-x86) -->
+  <remove-project name="device_generic_common" />
+  <project path="device/generic/common" name="device_generic_common" remote="unitronix" revision="typhoon-x86" sync-s="true" />
+
+  <remove-project name="device_generic_x86_64" />
+  <project path="device/generic/x86_64" name="device_generic_x86_64" remote="unitronix" revision="typhoon-x86" />
+
+  <!-- GPU / graphics (android-generic upstream pins) -->
+  <remove-project name="external_mesa" />
+  <project path="external/mesa" name="external_mesa" remote="unitronix" revision="25.0_prebuilt-intel-shaders" />
+
+  <remove-project name="external_drm_hwcomposer" />
+  <project path="external/drm_hwcomposer" name="external_drm_hwcomposer" remote="unitronix" revision="main-13" />
+
+  <remove-project name="external_minigbm" />
+  <project path="external/minigbm" name="external_minigbm" remote="unitronix" revision="13-x86" />
+
+  <remove-project name="external_gbm_gralloc" />
+  <project path="external/gbm_gralloc" name="external_gbm_gralloc" remote="unitronix" revision="main" />
+
+  <!-- Audio -->
+  <remove-project name="platform_hardware_libaudio" />
+  <project path="hardware/libaudio" name="platform_hardware_libaudio" remote="unitronix" revision="13-x86" />
+
+  <!-- Hardware interfaces -->
+  <remove-project name="platform_hardware_interfaces" />
+  <project path="hardware/interfaces" name="platform_hardware_interfaces" remote="unitronix" revision="typhoon-x86" />
+
+  <!-- Kernel: upstream name kerNel_common; GitHub fork normalized to kernel_common -->
+  <remove-project name="kerNel_common" />
+  <project path="kernel/x86/common" name="kernel_common" remote="unitronix" revision="hm/crimson" />
+</manifest>
